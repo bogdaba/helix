@@ -6,7 +6,7 @@ use helix_lsp::{
     util::lsp_range_to_range,
     LanguageServerId, LspProgressMap,
 };
-use helix_stdx::path::get_relative_path;
+// use helix_stdx::path::get_relative_path;
 use helix_view::{
     align_view,
     document::{DocumentOpenError, DocumentSavedEventResult},
@@ -570,17 +570,18 @@ impl Application {
 
         doc.set_last_saved_revision(doc_save_event.revision, doc_save_event.save_time);
 
-        let lines = doc_save_event.text.len_lines();
-        let bytes = doc_save_event.text.len_bytes();
+        // let lines = doc_save_event.text.len_lines();
+        // let bytes = doc_save_event.text.len_bytes();
 
         self.editor
             .set_doc_path(doc_save_event.doc_id, &doc_save_event.path);
         // TODO: fix being overwritten by lsp
         self.editor.set_status(format!(
-            "'{}' written, {}L {}B",
-            get_relative_path(&doc_save_event.path).to_string_lossy(),
-            lines,
-            bytes
+            // "'{}' written, {}L {}B",
+            "",
+            // get_relative_path(&doc_save_event.path).to_string_lossy(),
+            // lines,
+            // bytes
         ));
     }
 
